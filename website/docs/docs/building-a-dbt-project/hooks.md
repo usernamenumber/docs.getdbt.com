@@ -76,7 +76,7 @@ The `pre_hook` and `post_hook` aliases are new in dbt v0.12.2. If you're using a
 }}
 ```
 
-Hooks are extremely powerful, allowing analysts to perform tasks such as inserting records into audit tables, executing `GRANT` statements, and running `VACUUM` commands, among others. 
+Hooks are extremely powerful, allowing analysts to perform tasks such as inserting records into audit tables, executing `GRANT` statements, and running `VACUUM` commands, among others.
 
 ### Using hooks to grant
 
@@ -113,7 +113,7 @@ models:
 
 ### Using hooks to vacuum
 
-Incremental models can be configured to both insert new records and update existing records. In practice, updating existing records functions as a delete and insert. In Amazon Redshift, this will, over time, result in a poorly-optimized table. To address this, developers can include a post-hook to perform a vacuum command. 
+Incremental models can be configured to both insert new records and update existing records. In practice, updating existing records functions as a delete and insert. In Amazon Redshift, this will, over time, result in a poorly-optimized table. To address this, developers can include a post-hook to perform a vacuum command.
 
 Importantly, Redshift (and Postgres) require that `vacuum` and `analyze` run outside of a transaction. To indicate that a hook should run outside of a transaction, either 1) use the long-form hook interface or 2) use the `after_commit` shortcut:
 
